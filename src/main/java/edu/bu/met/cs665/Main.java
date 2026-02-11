@@ -1,14 +1,16 @@
 /**
- * Name: FIRST_NAME LAST_NAME
+ * Name: BOOKER NGOON
  * Course: CS-665 Software Designs & Patterns
- * Date: MM/DD/YYYY
+ * Date: 02/07/2026
  * File Name: Main.java
- * Description: Write a description for this class
+ * Description: Demonstrates usage of the BeverageMachine by brewing
+ * different beverages and printing their names and prices.
  */
 
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.example1.Person;
+import edu.bu.met.cs665.example1.Beverage;
+import edu.bu.met.cs665.example1.BeverageMachine;
 
 /**
  * This is the Main class.
@@ -16,23 +18,22 @@ import edu.bu.met.cs665.example1.Person;
 public class Main {
 
   /**
-   * A main method to run examples.
-   * You may use this method for development purposes as you start building your
-   * assignments/final project.  This could prove convenient to test as you are developing.
-   * However, please note that every assignment/final projects requires JUnit tests.
+   * Entry point for running the beverage machine demonstration.
+   *
+   * @param args command-line arguments
    */
   public static void main(String[] args) {
-    System.out.println("This is a test message from the Main class (Main.java file)");
-  }
 
-  /**
-   * This method performs XYZ and returns String.
-   *
-   * @return String
-   */
-  private String doIt() {
-    Person student = new Person("John", "Doe");
-    return student.getLastName() + ',' + student.getFirstName();
-  }
+    BeverageMachine machine = new BeverageMachine();
 
+    Beverage espresso = machine.brewEspresso(1, 2);
+    System.out.printf("%s costs $%.2f%n", espresso.getName(), espresso.getPrice());
+
+
+    Beverage greenTea = machine.brewGreenTea(0, 0);
+    System.out.println(greenTea.getName() + " costs $" + greenTea.getPrice());
+
+    Beverage latte = machine.brewLatteMacchiato(2, 1);
+    System.out.println(latte.getName() + " costs $" + latte.getPrice());
+  }
 }
